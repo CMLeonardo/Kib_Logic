@@ -10,7 +10,11 @@
     
     //........................................ 
     $pdo = KIBDataBase::connect();
-    $sql = ' SELECT * FROM kibdata_biometric_sensor_historic WHERE operator="' . $operator . '" ORDER BY id DESC LIMIT 1';
+    $sql = ' SELECT operator_name FROM kibdata_operator WHERE id = "' . $operator . '"';
+    foreach ($pdo->query($sql) as $row) {
+      $operator_name = $row['operator_name'];
+    }
+    $sql = ' SELECT * FROM kibdata_biometric_sensor_historic WHERE operator="' . $operator_name . '" ORDER BY id DESC LIMIT 1';
     foreach ($pdo->query($sql) as $row) {
       $date = date_create($row['date']);
       $dateFormat = date_format($date,"d-m-Y");

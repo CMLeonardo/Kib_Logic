@@ -5,21 +5,15 @@
   if (!empty($_POST)) {
     //........................................ keep track POST values
     $id = $_POST['id'];
-    $operator = $_POST['operator'];
-    //........................................
-
-    //........................................ Get the time and date.
-    date_default_timezone_set("America/Sao_Paulo"); // Look here for your timezone : https://www.php.net/manual/en/timezones.php
-    $tm = date("H:i:s");
-    $dt = date("Y-m-d");
+    $operator_name = $_POST['operator_name'];
     //........................................
     
     //........................................ Updating the data in the table.
     $pdo = KIBDataBase::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE kibdata_biometric_sensor_historic SET operator = ?, time = ?, date = ? WHERE id = ?";
+    $sql = "UPDATE kibdata_operator SET operator = ? WHERE id = ?";
     $q = $pdo->prepare($sql);
-    $q->execute(array($operator,$tm,$dt,$id));
+    $q->execute(array($operator_name,$id));
     KIBDataBase::disconnect();
     //........................................ 
   
@@ -40,9 +34,9 @@
     foreach ($pdo->query($sql) as $row) {
       $operator_name = $row['operator_name'];
     }
-    $sql = "INSERT INTO kibdata_biometric_sensor_historic (id,operator,time,date) values(?, ?, ?, ?)";
+    $sql = "INSERT INTO kibdata_operator (id,operator_name) values(?, ?)";
     $q = $pdo->prepare($sql);
-    $q->execute(array('',$operator_name,$tm,$dt));
+    $q->execute(array('',$operator_name));
     //::::::::
     
     KIBDataBase::disconnect();
