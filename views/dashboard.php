@@ -28,29 +28,12 @@
                         <i class="far fa-user"></i>
                         <a href="../views/gerenciarOperadores.php">Operadores</a>
                     </li>
-                    <li>
-                        <i class="fas fa-tachometer-alt"></i> 
-                        <a href="../views/gerenciarOperadores.php">Gerenciar Peso e Altura</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-heartbeat"></i>
-                        <a href="#">Gerenciar Pressão Arterial</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-dumbbell"></i>
-                        <a href="#">Gerenciar Atividade Físicas</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-utensils"></i>
-                        <a href="#">Alimentação</a>
-                    </li>
                 </ul>
             </div>   
         </sidebar>
         <main>
             <header>
-                <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
-                <a href="../index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="../views/dashboard.php"><i class="fas fa-home"></i> Dashboard</a>
             </header>
             <div class="main-content"> 
               <!-- __ DISPLAYS MONITORING AND CONTROLLING ____________________________________________________________________________________________ -->
