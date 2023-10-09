@@ -5,176 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/fontawesome/css/all.min.css">
     <title>KIB - Monitoracao</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <style>
-      html {font-family: Arial; display: inline-block; text-align: center;}
-      p {font-size: 1.2rem;}
-      h4 {font-size: 0.8rem;}
-      body {margin: 0;}
-      .content {padding: 20px; display: flex ; flex-direction: column; gap: 20px;}
-      .card {background-color: white; box-shadow: 0px 0px 10px 1px rgba(140,140,140,.5); border-radius: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;}
-      .card-header {color: #0c6980; border-bottom: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-top-right-radius: 12px; border-top-left-radius: 12px; background-color: transparent;}
-      .cards {max-width: 1000px; margin: 0 auto; display: grid; grid-gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));}
-      .reading {font-size: 1.3rem;}
-      
-      /* ----------------------------------- Toggle Switch */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 24px;
-      }
-
-      .switch input {display:none;}
-
-      .sliderTS {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #D3D3D3;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 34px;
-      }
-
-      .sliderTS:before {
-        position: absolute;
-        content: "";
-        height: 16px;
-        width: 16px;
-        left: 4px;
-        bottom: 4px;
-        background-color: #f7f7f7;
-        -webkit-transition: .4s;
-        transition: .4s;
-        border-radius: 50%;
-      }
-
-      input:checked + .sliderTS {
-        background-color: #00878F;
-      }
-
-      input:focus + .sliderTS {
-        box-shadow: 0 0 1px #2196F3;
-      }
-
-      input:checked + .sliderTS:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-
-      .sliderTS:after {
-        content:'OFF';
-        color: white;
-        display: block;
-        position: absolute;
-        transform: translate(-50%,-50%);
-        top: 50%;
-        left: 70%;
-        font-size: 10px;
-        font-family: Verdana, sans-serif;
-      }
-
-      input:checked + .sliderTS:after {  
-        left: 25%;
-        content:'ON';
-      }
-
-      input:disabled + .sliderTS {  
-        opacity: 0.3;
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-      
-      /* ----------------------------------- TABLE STYLE */
-      .styled-table {
-        border-collapse: collapse;
-        margin-left: auto; 
-        margin-right: auto;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-        border-radius: 0.5em;
-        overflow: hidden;
-        width: 90%;
-      }
-
-      .styled-table thead tr {
-        background-color: #fff;
-        color: #0c6980;
-        border-bottom: 1px solid #0c6980;
-        text-align: left;
-      }
-
-      .styled-table th {
-        padding: 12px 15px;
-        text-align: left;
-      }
-
-      .styled-table td {
-        padding: 12px 15px;
-        text-align: left;
-      }
-
-      .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-      }
-
-      .styled-table tbody tr.active-row {
-        font-weight: bold;
-        color: #009879;
-      }
-
-      
-      td:hover {background-color: rgba(12, 105, 128, 0.21);}
-      tr:hover {background-color: rgba(12, 105, 128, 0.15);}
-      .styled-table tbody tr:nth-of-type(even):hover {background-color: rgba(12, 105, 128, 0.15);}
-      /* ----------------------------------- */
-      
-      /* ----------------------------------- BUTTON STYLE */
-      .btn-group .button {
-        background-color: #0c6980; /* Green */
-        border: 1px solid #e3e3e3;
-        color: white;
-        padding: 5px 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-
-      .btn-group .button:not(:last-child) {
-        border-right: none; /* Prevent double borders */
-      }
-
-      .btn-group .button:hover {
-        background-color: #094c5d;
-      }
-
-      .btn-group .button:active {
-        background-color: #0c6980;
-        transform: translateY(1px);
-      }
-
-      .btn-group .button:disabled,
-      .button.disabled{
-        color:#fff;
-        background-color: #a0a0a0; 
-        cursor: not-allowed;
-        pointer-events:none;
-      }
-      /* ----------------------------------- */
-    </style>
   </head>
 <body>
     <div class="flex-dashboard">
@@ -224,7 +59,7 @@
                   
                   <!-- == MONITORING ======================================================================================== -->
                   <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background: white;">
                       <h3 style="font-size: 1rem;"><span id="operator1"></span><br>Último Acesso</h3>
                     </div>
                     <p class="temperatureColor"><span class="reading"><span id="lastTimeOperator1"></span></span></p>
@@ -232,7 +67,7 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background: white;">
                       <h3 style="font-size: 1rem;"><span id="operator2"></span><br>Último Acesso</h3>
                     </div>
                     <p class="humidityColor"><span class="reading"><span id="lastTimeOperator2"></span></span></p>
@@ -240,7 +75,7 @@
                   </div>
 
                   <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background: white;">
                       <h3 style="font-size: 1rem;"><span id="operator3"></span><br>Último Acesso</h3>
                     </div>
                     <p class="humidityColor"><span class="reading"><span id="lastTimeOperator3"></span></span></p>
@@ -250,8 +85,8 @@
                 </div>
 
                 <div class="card">
-                  <div class="card-header">
-                      <h3 style="font-size: 1rem;">Historico</h3>
+                  <div class="card-header" style="background: white; border-bottom: 0px;">
+                      <h3 style="font-size: 1rem;">Histórico</h3>
                   </div>
 
                   <table class="styled-table" id= "table_id" style=" background-color: #fff;">
@@ -273,7 +108,7 @@
                         // This table is used to store and record DHT11 sensor data updated by ESP32. 
                         // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
                         // To store data, this table is operated with the "INSERT" command, so this table will contain many rows.
-                        $sql = 'SELECT * FROM kibdata_biometric_sensor_historic ORDER BY time, date DESC';
+                        $sql = 'SELECT * FROM kibdata_biometric_sensor_historic ORDER BY id DESC';
                         foreach ($pdo->query($sql) as $row) {
                           $date = date_create($row['date']);
                           $dateFormat = date_format($date,"d-m-Y");

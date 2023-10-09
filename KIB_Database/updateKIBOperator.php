@@ -11,17 +11,13 @@
     //........................................ Updating the data in the table.
     $pdo = KIBDataBase::connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "UPDATE kibdata_operator SET operator = ? WHERE id = ?";
+    $sql = "UPDATE kibdata_operator SET operator_name = ? WHERE id = ?";
     $q = $pdo->prepare($sql);
     $q->execute(array($operator_name,$id));
     KIBDataBase::disconnect();
     //........................................ 
   
     //---------------------------------------- 
-    //........................................ Entering data into a table.
-    $board = $_POST['id'];
-    $found_empty = false;
-    
     $pdo = KIBDataBase::connect();
     
     //:::::::: The process of entering data into a table.
@@ -30,13 +26,9 @@
     // This table is used to store and record DHT11 sensor data updated by ESP32. 
     // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "INSERT" command, so this table will contain many rows.
-    $sql = ' SELECT operator_name FROM kibdata_operator WHERE id = "' . $operator . '"';
-    foreach ($pdo->query($sql) as $row) {
-      $operator_name = $row['operator_name'];
-    }
     $sql = "INSERT INTO kibdata_operator (id,operator_name) values(?, ?)";
     $q = $pdo->prepare($sql);
-    $q->execute(array('',$operator_name));
+    $q->execute(array($id ,$operator_name));
     //::::::::
     
     KIBDataBase::disconnect();

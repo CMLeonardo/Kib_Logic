@@ -55,8 +55,8 @@ main .main-content {
 
 .panel-row button {
     height: 100px;
-    background: linear-gradient(135deg, #0c6980, white);
-    color: grey;
+    background: #0c6980;
+    color: #fff;
     border-radius: 5px
 }
 
@@ -74,7 +74,7 @@ div #ajax-content {
 }
 
 div #ajax-content button {
-    background: linear-gradient(135deg, #0c6980, white);
+    background: #0c6980;
     color: #fff;
 }
 
