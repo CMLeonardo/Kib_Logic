@@ -125,7 +125,7 @@
             }
             xmlhttp.open("POST","../KIB_database/UpdateKIBOperator.php",true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send("id=&operator_name="+operator_name);
+            xmlhttp.send("id=&operator_name="+operator_name_input);
         }
         //------------------------------------------------------------
         function update_operator() {
@@ -141,7 +141,7 @@
             }
             xmlhttp.open("POST","../KIB_database/UpdateKIBOperator.php",true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send("id="+id+"&operator_name="+operator_name);
+            xmlhttp.send("id="+id_operator+"&operator_name="+operator_name_input);
         }
         //------------------------------------------------------------
     </script>
