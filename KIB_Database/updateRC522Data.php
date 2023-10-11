@@ -5,13 +5,10 @@
   if (!empty($_POST)) {
     //........................................ keep track POST values
     $id = $_POST['id'];
-    $RFID = $_POST['RFID'];
+    $rfid = $_POST['rfid'];
     //........................................
 
-    //........................................ Entering data into a table.
-    $board = $_POST['id'];
-    $found_empty = false;
-    
+    //........................................ Entering data into a table.    
     $pdo = KIBDataBase::connect();
     
     //:::::::: The process of entering data into a table.
@@ -20,9 +17,9 @@
     // This table is used to store and record DHT11 sensor data updated by ESP32. 
     // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "INSERT" command, so this table will contain many rows.
-    $sql = "INSERT INTO kibdata_rfid_acces (id,RFID,operator) values(?, ?, ?)";
+    $sql = "INSERT INTO kibdata_rfid_acces (id,rfid,operator_name) values(?, ?, ?)";
     $q = $pdo->prepare($sql);
-    $q->execute(array('',$RFID,''));
+    $q->execute(array('',$rfid,''));
     //::::::::
     
     KIBDataBase::disconnect();
