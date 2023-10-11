@@ -14,10 +14,8 @@
     $q = $pdo->prepare($sql);
     $q->execute();
 
-    $result = $q -> get_result();
-
     // Verificar se a consulta retornou alguma linha
-    if ($result->num_rows > 0) {
+    if ($data = $q->fetch()) {
         echo "true"; // Valor encontrado
     } else {
         echo "false"; // Valor não encontrado
