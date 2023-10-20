@@ -9,6 +9,7 @@
     $found_empty = false;
     //........................................
 
+    $pdo = KIBDataBase::connect();
     if($id != "0"){
       //:::::::: Process to check if "id" is already in use.
       while ($found_empty == false) {
@@ -18,7 +19,7 @@
         // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
         // This table is operated with the "INSERT" command, so this table will contain many rows.
         // Before saving and recording data in this table, the "id" will be checked first, to ensure that the "id" that has been created has not been used in the table.
-        $sql = 'SELECT * FROM replace_with_your_table_name WHERE id="' . $id_key . '"';
+        $sql = 'SELECT * FROM kibdata_rfid_acces WHERE id="' . $id_key . '"';
         $q = $pdo->prepare($sql);
         $q->execute();
         
@@ -30,7 +31,6 @@
     }
 
     //........................................ Entering data into a table.    
-    $pdo = KIBDataBase::connect();
     
     //:::::::: The process of entering data into a table.
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
