@@ -28,13 +28,14 @@
                         <i class="far fa-user"></i>
                         <a href="../views/gerenciarOperadores.php">Operadores</a>
                     </li>
+                    <li>
+                        <i class="far fa-user"></i>
+                        <a href="../views/cadastrarBiometria.php">Biometria</a>
+                    </li>
                 </ul>
             </div>   
         </sidebar>
         <main>
-            <header>
-                <a href="../views/dashboard.php"><i class="fas fa-home"></i> Dashboard</a>
-            </header>
             <div class="main-content"> 
               <!-- __ DISPLAYS MONITORING AND CONTROLLING ____________________________________________________________________________________________ -->
               <div class="content">

@@ -27,6 +27,10 @@
                         <i class="far fa-user"></i>
                         <a href="../views/gerenciarOperadores.php">Operadores</a>
                     </li>
+                    <li>
+                        <i class="far fa-user"></i>
+                        <a href="../views/cadastrarBiometria.php">Biometria</a>
+                    </li>
                 </ul>
             </div>   
         </sidebar>
