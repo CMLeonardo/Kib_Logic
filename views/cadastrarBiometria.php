@@ -16,8 +16,8 @@
 
         .buttonBiometria::after {
             content: url('../../_img/lua.png');
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             background-color: #e3e3e3;
             border: solid 2px #0c6980;
             border-radius: 50%;
@@ -62,11 +62,18 @@
             <div class="main-content">
                 <div class="panel-row">
                     <div class="content">
-                        <label class="form-label">Cadastro Biométrico Ativo?<br>id atual: <span class="id_biometric"></span></label>
-                        <input type="checkbox" id="toggle">
-                        <label for="toggle" class="buttonBiometria" a-view="cadastrarBiometria" onclick="fetchContent(this); GetTogBtnCadState()" a-folder="biometria"></label>
+                        <label class="form-label">Cadastro Biométrico Ativo? <input type="checkbox" id="toggle" onclick="GetTogBtnCadState()">
+                        <label for="toggle" class="buttonBiometria"></label><br>id atual: <span id="id_biometric"></span></label>
                         <div class="content" id="ajax-content">
-                        <div class="dynamic-content"></div>
+                            <div class="dynamic-content">
+                                <form>
+                                <div class="mb-3">
+                                    <label for="weight" class="form-label">Id do Cadastro Biométrico</label>
+                                    <input type="number" min="1" max="3" class="form-control" id="biometric_id" required>
+                                </div>
+                                <button type="submit" class="btn" style="width: 100%;" onclick="update_Biometric_Id()">Atualizar</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>         
@@ -93,11 +100,11 @@
 
         //------------------------------------------------------------
         function GetTogBtnCadState() {
-            var togbtnchecked = document.getElementById(toggle).checked;
-            var togbtncheckedsend = "";
-            if (togbtnchecked == true) togbtncheckedsend = "true";
-            if (togbtnchecked == false) togbtncheckedsend = "false";
-            Update_Tog(togbtncheckedsend);
+            var togbtnchecked = document.getElementById("toggle").checked;
+            var cadstate = "";
+            if (togbtnchecked == true) cadstate = "true";
+            if (togbtnchecked == false) cadstate = "false";
+            Update_Tog(cadstate);
         }
         //------------------------------------------------------------
         
@@ -110,12 +117,8 @@
             // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    //document.getElementById("demo").innerHTML = this.responseText;
-                }
-            }
-            xmlhttp.open("POST","updateCadTogState.php",true);
+            
+            xmlhttp.open("POST","../KIB_database/updateCadTogState.php",true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send("id=1&cadstate="+cadstate);
         }
@@ -131,17 +134,18 @@
             }
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
                     const myObj = JSON.parse(this.responseText);
                     console.log(myObj);
                     var biometric_cadstate = myObj.cadstate == null ? "NN" : myObj.cadstate;
                     var biometric_id = myObj.biometric_id == null ? "NN" : myObj.biometric_id;
                     if(biometric_cadstate == "true"){
-                        document.getElementById("toggle").checked;
+                        document.getElementById("toggle").checked = true;
                     }
                     document.getElementById("id_biometric").innerHTML = biometric_id;
                 }
             }
-            xmlhttp.open("POST","getCadData.php",true);
+            xmlhttp.open("POST","../KIB_database/getCadData.php",true);
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send("id=1");
         }

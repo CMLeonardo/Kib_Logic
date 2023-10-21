@@ -161,3 +161,43 @@ cursor: not-allowed;
 pointer-events:none;
 }
 /* ----------------------------------- */
+
+#toggle{
+    display: none;
+}
+
+.buttonBiometria {
+    width: 90px;
+    height: 30px;
+    background-color: #ffff;
+    border-radius: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+
+.buttonBiometria::after {
+    content: url('../../_img/lua.png');
+    width: 40px;
+    height: 40px;
+    background-color: #3d5a80;
+    border: solid 2px #FECD84;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color 1s, 
+    transform 1s ease-in;
+}
+
+#toggle:checked + .buttonBiometria::after {
+    content: url("../../_img/sol.png");
+    background-color: #FECD84;
+    border-color: #3d5a80;
+    transform: translateX(60px) rotate(360deg);
+}
