@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/fontawesome/css/all.min.css">
-    <title>KIB - Operadores</title>
+    <title>KIB - Biometria</title>
     <style>
         #toggle{
             display: none;
         }
 
         .buttonBiometria::after {
-            content: url('../../_img/lua.png');
             width: 30px;
             height: 30px;
             background-color: #e3e3e3;
@@ -28,7 +27,6 @@
         }
 
         #toggle:checked + .buttonBiometria::after {
-            content: url("../../_img/sol.png");
             background-color: #0c6980;
             border-color: #e3e3e3;
         }
@@ -52,7 +50,7 @@
                         <a href="../views/gerenciarOperadores.php">Operadores</a>
                     </li>
                     <li>
-                        <i class="far fa-user"></i>
+                        <i class="fa-solid fa-hand-point-up"></i>
                         <a href="../views/cadastrarBiometria.php">Biometria</a>
                     </li>
                 </ul>
