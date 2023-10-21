@@ -17,13 +17,9 @@
     // This table is used to store and record DHT11 sensor data updated by ESP32. 
     // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "INSERT" command, so this table will contain many rows.
-    $sql = ' SELECT operator_name FROM kibdata_operator WHERE id = "' . $id . '"';
-    foreach ($pdo->query($sql) as $row) {
-      $operator_name = $row['operator_name'];
-    }
-    $sql = "INSERT INTO kibdata_rfid_acces (id,rfid,operator_name) values(?, ?, ?)";
+    $sql = "INSERT INTO kibdata_rfid_acces (id,rfid) values(?, ?)";
     $q = $pdo->prepare($sql);
-    $q->execute(array('',$rfid,$operator_name));
+    $q->execute(array('',$rfid));
     //::::::::
     
     KIBDataBase::disconnect();
