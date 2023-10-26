@@ -21,7 +21,7 @@
                 <ul>
                     <li>
                         <i class="fas fa-home"></i>
-                        <a href="../views/dashboard.php">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
                         <i class="far fa-user"></i>
@@ -35,9 +35,6 @@
             </div>   
         </sidebar>
         <main>
-            <header>
-                <a href="../views/dashboard.php"><i class="fas fa-home"></i> Dashboard</a>
-            </header>
             <div class="main-content">
                 <div class="panel-row">
                     <button class="panel panel-50" a-view="cadastrarOperador" onclick="fetchContent(this)" a-folder="operador">Cadastrar Operador</button>

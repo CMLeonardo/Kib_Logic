@@ -9,32 +9,10 @@
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/fontawesome/css/all.min.css">
     <title>KIB - Biometria</title>
-    <style>
-        #toggle{
-            display: none;
-        }
-
-        .buttonBiometria::after {
-            width: 30px;
-            height: 30px;
-            background-color: #e3e3e3;
-            border: solid 2px #0c6980;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-            display: grid;
-            transition: background-color 1s, 
-            transform 1s ease-in;
-        }
-
-        #toggle:checked + .buttonBiometria::after {
-            background-color: #0c6980;
-            border-color: #e3e3e3;
-        }
-    </style>
 </head>
 <body>
     <div class="flex-dashboard">
-        <sidebar>
+    <sidebar>
             <div class="sidebar-title">
                 <img src="../images/Image-login.png" alt="">
                 <p>KIB</p>
@@ -43,14 +21,14 @@
                 <ul>
                     <li>
                         <i class="fas fa-home"></i>
-                        <a href="../views/dashboard.php">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                     </li>
                     <li>
                         <i class="far fa-user"></i>
                         <a href="../views/gerenciarOperadores.php">Operadores</a>
                     </li>
                     <li>
-                        <i class="fa-solid fa-hand-point-up"></i>
+                        <i class="far fa-user"></i>
                         <a href="../views/cadastrarBiometria.php">Biometria</a>
                     </li>
                 </ul>
