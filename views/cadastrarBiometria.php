@@ -9,6 +9,28 @@
     <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../plugins/fontawesome/css/all.min.css">
     <title>KIB - Biometria</title>
+    <style>
+        #toggle{
+            display: none;
+        }
+
+        .buttonBiometria::after {
+            width: 30px;
+            height: 30px;
+            background-color: #e3e3e3;
+            border: solid 2px #0c6980;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+            display: grid;
+            transition: background-color 1s, 
+            transform 1s ease-in;
+        }
+
+        #toggle:checked + .buttonBiometria::after {
+            background-color: #0c6980;
+            border-color: #e3e3e3;
+        }
+    </style>
 </head>
 <body>
     <div class="flex-dashboard">
