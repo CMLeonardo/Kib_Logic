@@ -11,24 +11,7 @@
     <title>KIB - Biometria</title>
     <style>
         #toggle{
-            display: none;
-        }
-
-        .buttonBiometria::after {
-            width: 30px;
-            height: 30px;
-            background-color: #e3e3e3;
-            border: solid 2px #0c6980;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-            display: grid;
-            transition: background-color 1s, 
-            transform 1s ease-in;
-        }
-
-        #toggle:checked + .buttonBiometria::after {
-            background-color: #0c6980;
-            border-color: #e3e3e3;
+            display: block;
         }
     </style>
 </head>
@@ -61,7 +44,7 @@
                 <div class="panel-row">
                     <div class="content">
                         <label class="form-label">Cadastro Biométrico Ativo? <input type="checkbox" id="toggle" onclick="GetTogBtnCadState()">
-                        <label for="toggle" class="buttonBiometria"></label><br>id atual: <span id="id_biometric"></span></label>
+                        <br>id atual: <span id="id_biometric"></span></label>
                         <div class="content" id="ajax-content">
                             <div class="dynamic-content">
                                 <form>
